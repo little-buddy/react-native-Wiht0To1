@@ -7,11 +7,13 @@ import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
+import com.tencent.bugly.crashreport.CrashReport;
 
 import java.util.Arrays;
 import java.util.List;
 
 public class MainApplication extends Application implements ReactApplication {
+  private static final String BuglyAppId = "8de0cd71f5";
 
   private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
     @Override
@@ -40,6 +42,7 @@ public class MainApplication extends Application implements ReactApplication {
   @Override
   public void onCreate() {
     super.onCreate();
+    CrashReport.initCrashReport(getApplicationContext(), BuglyAppId, false);
     SoLoader.init(this, /* native exopackage */ false);
   }
 }

@@ -10,6 +10,7 @@
 #import <React/RCTBridge.h>
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
+#import <Bugly/Bugly.h>
 
 @implementation AppDelegate
 
@@ -27,6 +28,7 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  [Bugly startWithAppId:@"6677ed269f"];
   return YES;
 }
 
